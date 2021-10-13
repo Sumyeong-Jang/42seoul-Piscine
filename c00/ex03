@@ -1,0 +1,12 @@
+#include <unistd.h>
+
+voidft_print_numbers(void)
+{
+charch;
+
+ch = '0' - 1;
+while (ch++ < '9')
+{
+write(1, &ch, 1);
+}
+}
