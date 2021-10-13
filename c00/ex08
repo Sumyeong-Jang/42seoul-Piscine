@@ -1,0 +1,45 @@
+#include <unistd.h>
+
+void ft_print_combn(int n);
+void sort(char *num, int n, int idx);
+void plus(char *num, int n, int idx);
+
+void ft_print_combn(int n)
+{
+char pnum[11];
+char *num;
+
+pnum = num;
+num[0] = '0';
+num[n] = ',';
+num[n + 1] = ' ';
+sort(num, n, 1);
+plus(num, n, n - 1);
+}
+
+void plus(char *num, int n, int idx)
+{
+write(1, num, n);
+if (num[idx] < '9')
+num[idx] += 1;
+plus(num, n, idx);
+else if (num[idx] == '9' && num[idx - 1] < num[idx] - 1)
+num[idx - 1] += 1;
+sort(num, n, idx);
+plus(num, n, ++idx);
+while (n-- > 0)
+{
+if (num[idx - 1] < '9')
+{
+num[idx - 1] += 1;
+}
+else
+
+void sort(char *num, int n, int idx)
+{
+while ((n - idx)-- > 0)
+{
+num[idx] = num[idx - 1] + 1;
+idx += 1;
+}
+}
