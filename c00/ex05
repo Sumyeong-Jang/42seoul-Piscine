@@ -1,0 +1,53 @@
+#include <unistd.h>
+
+voidsolution(char *num);
+voidsort(char *num, int n);
+
+voidft_print_comb(void)
+{
+chararr_num[5];
+char*num;
+
+num = arr_num;
+num[0] = '0';
+sort(num, 0);
+num[3] = ',';
+num[4] = ' ';
+solution(num);
+}
+
+voidsort(char *num, int n)
+{
+if (n == 0)
+{
+num[1] = num[0] + 1;
+num[2] = num[1] + 1;
+}
+if (n == 1)
+num[2] = num[1] + 1;
+}
+
+voidsolution(char *num)
+{
+write(1, num, 5);
+if (num[2] < '9')
+{
+num[2] += 1;
+solution(num);
+}
+else if (num[2] == '9' && num[1] < '8')
+{
+num[1] += 1;
+sort(num, 1);
+solution(num);
+}
+if (num[1] == '8' && num[0] < '7')
+{
+num[0] += 1;
+sort(num, 0);
+if (num[0] == '7')
+write(1, num, 3);
+else
+solution(num);
+}
+}
