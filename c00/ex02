@@ -1,0 +1,12 @@
+#include <unistd.h>
+
+voidft_print_reverse_alphabet(void)
+{
+charch;
+
+ch = 'z' + 1;
+while (ch-- > 'a')
+{
+write(1, &ch, 1);
+}
+}
